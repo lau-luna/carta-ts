@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Carta</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="#">Restaurante sos</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+        </nav>
+
+        
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <div class="text-center mb-3">
+            <button class="btn btn-warning" onclick="filtrarPlatos('todos')">Todos</button>
+            <button class="btn btn-warning" onclick="filtrarPlatos('vegetariano')">Vegetarianos</button>
+            <button class="btn btn-warning" onclick="filtrarPlatos('celiaco')">Celiacos</button>
+        </div>
+
+        <div id="carta" class="row"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
