@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Carta</title>
-    
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
-
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
     <nav class="navbar navbar-expand-sm navbar-light bg-light mb-4">
         <a class="navbar-brand" href="#">Restaurante sos</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
 
     <div class="container">
-
         <form class="form-inline my-2 my-lg-0">
             <input id="buscador" class="form-control mr-sm-2" type="text" placeholder="Buscar productos" oninput="buscar()">
         </form>
 
-        <div class="text-center mt-3 mb-1">
+        <!-- Categorías visibles en pantallas grandes -->
+        <div class="text-center mb-1 categorias d-none d-md-block">
             <button class="btn btn-warning" onclick="filtrarPlatos('todos')">
                 <i class="fas fa-utensils"></i> Todos
             </button>
@@ -39,13 +37,29 @@
             </button>
         </div>
 
+        <!-- Botón para collapse en móviles -->
+        <div class="d-md-none">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Mostrar categorías
+            </button>
+            <div class="collapse" id="collapseExample">
+                    <button class="btn btn-warning" onclick="filtrarPlatos('todos')">
+                        <i class="fas fa-utensils"></i> Todos
+                    </button>
+                    <button class="btn btn-warning" onclick="filtrarPlatos('vegetariano')">
+                        <i class="fas fa-utensils"></i> Vegetarianos
+                    </button>
+                    <button class="btn btn-warning" onclick="filtrarPlatos('celiaco')">
+                        <i class="fas fa-utensils"></i> Celiacos
+                    </button>
+                </div>
+        </div>
+
         <hr>
 
         <div id="carta" class="row"></div>
-
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>

@@ -43,6 +43,9 @@ function mostrarPlatos(platosAMostrar: Plato[]) {
     });
 }
 
+
+
+
 // Mostrar todos los platos al cargar
 document.addEventListener("DOMContentLoaded", () => {
     mostrarPlatos(platos);
@@ -71,7 +74,7 @@ function buscar(){
         plato.descripcion.toLowerCase().indexOf(busqueda) !== -1 ||
         plato.tipo.toLowerCase().indexOf(busqueda) !== -1
     );
-    
+
 
     mostrarPlatos(platosBusqueda);
 }

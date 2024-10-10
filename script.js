@@ -8,6 +8,7 @@ var platos = [
     { nombre: "Tacos vegetarianos", descripcion: "Tortillas con vegetales asados", precio: 4500, tipo: "vegetariano" },
 ];
 var carta = document.getElementById("carta");
+// Mostrar platos en la carta
 function mostrarPlatos(platosAMostrar) {
     carta.innerHTML = ""; // Limpiar la carta actual
     platosAMostrar.forEach(function (plato, index) {
@@ -19,10 +20,10 @@ function mostrarPlatos(platosAMostrar) {
         card.innerHTML = "\n            <div class=\"card-body\">\n                <h5 class=\"card-title\">".concat(plato.nombre, "</h5>\n                <p class=\"card-text\">").concat(plato.descripcion, "</p>\n                <div class=\"alert alert-warning col-md-4\" role=\"alert\">$").concat(plato.precio, "</div>\n            </div>\n        ");
         col.appendChild(card);
         carta.appendChild(col);
-        // Usar un pequeño retraso para que la animación sea visible
+        // Animación de las tarjetas (con un pequeño retraso)
         setTimeout(function () {
             card.classList.add("show");
-        }, index * 75); // Retraso de 100ms entre cada tarjeta
+        }, index * 75); // Retraso de 75ms entre cada tarjeta
     });
 }
 // Mostrar todos los platos al cargar
@@ -32,22 +33,21 @@ document.addEventListener("DOMContentLoaded", function () {
 // Filtrar platos por tipo
 function filtrarPlatos(tipo) {
     if (tipo === 'todos') {
-        mostrarPlatos(platos);
+        mostrarPlatos(platos); // Mostrar todos los platos
     }
     else {
         var platosFiltrados = platos.filter(function (plato) { return plato.tipo === tipo; });
-        mostrarPlatos(platosFiltrados);
+        mostrarPlatos(platosFiltrados); // Mostrar platos filtrados
     }
 }
-// Funcion de búsqueda onchange
-function buscar() {
-    var input = document.getElementById("buscador");
-    var busqueda = input.value.toLowerCase();
-    // Buscar por nombre, descripcion y tipo
+// Buscar platos en la carta
+var inputBuscador = document.getElementById("buscador");
+inputBuscador.addEventListener("input", function () {
+    var busqueda = inputBuscador.value.toLowerCase();
     var platosBusqueda = platos.filter(function (plato) {
-        return plato.nombre.toLowerCase().indexOf(busqueda) !== -1 ||
-            plato.descripcion.toLowerCase().indexOf(busqueda) !== -1 ||
-            plato.tipo.toLowerCase().indexOf(busqueda) !== -1;
+        return plato.nombre.toLowerCase().indexOf(busqueda) ||
+            plato.descripcion.toLowerCase().indexOf(busqueda) ||
+            plato.tipo.toLowerCase().indexOf(busqueda);
     });
-    mostrarPlatos(platosBusqueda);
-}
+    mostrarPlatos(platosBusqueda); // Mostrar resultados de búsqueda
+});

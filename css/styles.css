@@ -36,6 +36,10 @@ h1, h5 {
     max-width: 90%;
 }
 
+.categorias{
+    margin-top: 0;
+}
+
 #buscador {
     width: 100%;
     border-radius: 20px;
@@ -120,7 +124,8 @@ button.btn:hover {
     }
 
     .card {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         max-width: 100%;
     }
+
 }
