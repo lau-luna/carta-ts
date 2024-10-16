@@ -80,9 +80,9 @@ function buscar() {
     debounceTimer = window.setTimeout(function () {
         // Buscar por nombre, descripcion y tipo
         var platosBusqueda = platos.filter(function (plato) {
-            return plato.nombre.toLowerCase().indexOf(busqueda) ||
-                plato.descripcion.toLowerCase().indexOf(busqueda) ||
-                plato.tipo.toLowerCase().indexOf(busqueda);
+            return plato.nombre.toLowerCase().indexOf(busqueda) !== -1 ||
+                plato.descripcion.toLowerCase().indexOf(busqueda) !== -1 ||
+                plato.tipo.toLowerCase().indexOf(busqueda) !== -1;
         });
         mostrarPlatos(platosBusqueda); // Mostrar los resultados de la búsqueda
     }, 300); // Retraso de 300ms para ejecutar la búsqueda
